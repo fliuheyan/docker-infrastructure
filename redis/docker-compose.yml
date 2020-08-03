@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  redis:
+    image: bitnami/redis:6.0
+    ports:
+      - '6379:6379'
+    volumes:
+      - $PWD/redis.conf:/opt/bitnami/redis/mounted-etc/redis.conf
+      - $PWD/redis-data:/bitnami/redis/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+  redis-cli:
+    image: redis:6.0
+    command: redis-cli -h redis
+    links: # links maybe deprecated
+      - redis
+
+
