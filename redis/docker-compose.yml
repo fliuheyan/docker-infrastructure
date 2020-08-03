@@ -9,6 +9,7 @@ services:
       - $PWD/redis-data:/bitnami/redis/data
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+      - PROTECTED_MODE=no
   redis-cli:
     image: redis:6.0
     command: redis-cli -h redis
