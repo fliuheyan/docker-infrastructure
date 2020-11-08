@@ -2,6 +2,7 @@ version: '3.7'
 services:
   redis:
     image: bitnami/redis:6.0
+    working_dir: /bitnami/redis
     ports:
       - '6379:6379'
     volumes:
