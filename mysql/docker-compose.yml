@@ -7,6 +7,9 @@ services:
       - '3306:3306'
     volumes:
       - type: bind
+        source: ./init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+      - type: bind
         source: ./mysql-master.cnf
         target: /etc/mysql/conf.d/mysql-master.cnf
     environment:
